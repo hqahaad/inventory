@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 1003579999}
   - component: {fileID: 1003579998}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: InventoryCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2913,6 +2913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 1543533351109337728, guid: 98fdc1b2238cc674caa6668d954e7098, type: 3}
   slotParent: {fileID: 1610966743}
+  inventoryCountText: {fileID: 1003579998}
 --- !u!1 &1926524057
 GameObject:
   m_ObjectHideFlags: 0

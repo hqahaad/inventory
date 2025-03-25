@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Inventory
 {
-    public event Action<InventorySlot, int> OnChangedSlot = delegate { };
-
     public const int maxSlotCount = 50;
 
     private List<InventorySlot> inventorySlots = new();
+
+    public event Action<InventorySlot, int> OnChangedSlot = delegate { };
+    public int inventoryCount { get; private set; }
 
     public Inventory()
     {
@@ -21,12 +22,17 @@ public class Inventory
 
     public bool AddItem(ItemData item)
     {
+        if (inventoryCount >= inventorySlots.Count)
+            return false;
+
         var idx = inventorySlots.FindIndex(s => s.IsEmpty);
 
         if (idx == -1)
             return false;
 
         inventorySlots[idx].Add(ItemData.Create(item));
+        inventoryCount++;
+
         OnChangedSlot?.Invoke(inventorySlots[idx], idx);
 
         return true;
@@ -37,7 +43,7 @@ public class Inventory
         if (index < 0 || index >= inventorySlots.Count)
             return;
 
-        if (inventorySlots[index].ItemInstance.IsEquip)
+        if (inventorySlots[index].ItemInstance != null && inventorySlots[index].ItemInstance.IsEquip)
             UnEquip(index);
         else
             Equip(index);
