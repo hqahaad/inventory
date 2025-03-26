@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a768ca47af40334a9a405c9e9a14440, type: 3}
   m_Name: Equip_Sword
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: ace1f0b4fa42d7f46a9831f7c6b38492, type: 3}
+  itemIcon: {fileID: -239026293, guid: 3ae67d9a585560e459ef03ec598ac617, type: 3}
   attackPower: 66
   defensive: 11
   hp: 5
